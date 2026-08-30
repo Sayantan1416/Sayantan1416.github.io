@@ -124,6 +124,20 @@ a:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
+.hero-links a.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  font-size: 1.05rem;
+}
+.hero-links a.icon-link:hover {
+  border-color: var(--accent);
+  background: var(--bg-alt);
+}
 
 /* Sections */
 .section {
