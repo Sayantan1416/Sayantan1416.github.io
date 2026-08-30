@@ -76,8 +76,24 @@ a:hover {
 
 /* Hero */
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: 72px 0 56px;
   text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero > .wrap {
+  position: relative;
+  z-index: 1;
 }
 .hero-photo {
   width: 164px;
