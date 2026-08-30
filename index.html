@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sayantan Chakraborty</title>
 <meta name="description" content="Sayantan Chakraborty — Undergraduate researcher in Health Economics and Behavioral Economics, University of Dhaka.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%93</text></svg>">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
@@ -283,6 +284,13 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Playful tab title when the visitor switches away
+  const originalTitle = document.title;
+  const awayTitle = '👋 Come back!';
+  document.addEventListener('visibilitychange', () => {
+    document.title = document.hidden ? awayTitle : originalTitle;
+  });
 </script>
 
 </body>
