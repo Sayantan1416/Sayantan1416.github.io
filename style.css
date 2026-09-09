@@ -73,6 +73,34 @@ a:hover {
 .site-header nav a:hover {
   color: var(--accent);
 }
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+/* icon-dark (moon) = shown while in light mode, click to go dark.
+   icon-light (sun) = shown while in dark mode, click to go light. */
+.theme-toggle .icon-light { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-dark { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-light { display: inline; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-dark { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-light { display: inline; }
+}
 
 /* Hero */
 .hero {
@@ -284,9 +312,9 @@ a:hover {
   .hero { padding: 56px 0 40px; }
 }
 
-/* Dark mode: follows the visitor's OS/browser preference */
+/* Dark mode: follows the visitor's OS/browser preference, unless overridden by the toggle */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #14171c;
     --bg-alt: #1a1e24;
     --text: #e7e9ec;
@@ -295,7 +323,21 @@ a:hover {
     --accent-2: #d1a24f;
     --rule: #2c313a;
   }
-  .site-header {
+  :root:not([data-theme="light"]) .site-header {
     background: rgba(20, 23, 28, 0.9);
   }
+}
+
+/* Dark mode: forced on via the toggle, regardless of OS preference */
+:root[data-theme="dark"] {
+  --bg: #14171c;
+  --bg-alt: #1a1e24;
+  --text: #e7e9ec;
+  --text-muted: #a3a9b4;
+  --accent: #6fb8c4;
+  --accent-2: #d1a24f;
+  --rule: #2c313a;
+}
+:root[data-theme="dark"] .site-header {
+  background: rgba(20, 23, 28, 0.9);
 }
