@@ -106,7 +106,18 @@ a:hover {
 /* Hero */
 .hero {
   padding: 72px 0 56px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.hero-left {
   text-align: center;
+}
+.hero-right {
+  scroll-margin-top: 80px;
 }
 .hero-photo {
   width: 164px;
@@ -114,7 +125,8 @@ a:hover {
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 50%;
-  margin: 0 0 24px;
+  margin: 0 auto 24px;
+  display: block;
   border: 3px solid var(--bg);
   box-shadow: 0 0 0 1px var(--rule);
 }
@@ -124,11 +136,11 @@ a:hover {
   font-size: 0.78rem;
   color: var(--accent-2);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin: 0 0 10px;
+  margin: 0 0 18px;
 }
 .hero h1 {
-  font-size: clamp(2.1rem, 4vw, 3rem);
-  margin: 0 0 16px;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  margin: 0 0 10px;
   letter-spacing: -0.01em;
 }
 .hero-sub {
@@ -175,7 +187,8 @@ a:hover {
 .section.alt {
   background: var(--bg-alt);
 }
-.section h2 {
+.section h2,
+.hero-right h2 {
   font-size: 1.5rem;
   margin: 0 0 28px;
   padding-bottom: 10px;
@@ -312,6 +325,7 @@ a:hover {
   .brand { font-size: 1.25rem; }
   .skill-row { grid-template-columns: 1fr; gap: 4px; }
   .hero { padding: 56px 0 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
 /* Dark mode: follows the visitor's OS/browser preference, unless overridden by the toggle */
