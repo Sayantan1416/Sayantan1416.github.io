@@ -190,7 +190,25 @@ a:hover {
   background: var(--bg-alt);
 }
 
-/* Sections */
+/* Sections: two-column (title left, content right) */
+.section > .wrap {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr;
+  column-gap: 48px;
+  align-items: start;
+}
+.section > .wrap > h2 {
+  grid-column: 1;
+  grid-row: 1 / span 20;
+  align-self: start;
+  position: sticky;
+  top: 90px;
+}
+.section > .wrap > :not(h2) {
+  grid-column: 2;
+}
+
 .section {
   padding: 56px 0;
 }
@@ -337,6 +355,9 @@ a:hover {
   .skill-row { grid-template-columns: 1fr; gap: 4px; }
   .hero { padding: 28px 0 40px; }
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .section > .wrap { grid-template-columns: 1fr; }
+  .section > .wrap > h2 { grid-row: auto; position: static; }
+  .section > .wrap > :not(h2) { grid-column: 1; }
 }
 
 /* Dark mode: follows the visitor's OS/browser preference, unless overridden by the toggle */
